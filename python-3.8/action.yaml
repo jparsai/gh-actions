@@ -1,16 +1,16 @@
 # action.yaml
-name: "crda-analysis"
-description: "The CRDA Analysis action is an interface to Red Hat CodeReady Dependency Analytics platform. It provides vulnerability and compliance analysis for your applications dependencies, along with recommendations to address security vulnerabilities and licensing issues."
+name: "redhat-codeready-dependency-analysis"
+description: "The RedHat-CodeReady-Dependency-Analysis action is an interface to Red Hat CodeReady Dependency Analytics platform. It provides vulnerability and compliance analysis for your applications dependencies, along with recommendations to address security vulnerabilities and licensing issues."
 
 inputs:
   manifest-file-path:
     description: Path of target manifest file to perform analysis.
     required: true
-    default: requirements1.txt
+    default: requirements.txt
   output-file-path:
     description: Path of the file to save analysis report.
     required: true
-    default: crda-analysis-report.json
+    default: redhat-codeready-dependency-analysis-report.json
   pkg-installation-directory-path:
     description: Path of a directory in workspace, where dependencies are installed.
     required: true

@@ -1,11 +1,11 @@
-# crda-analysis Python (3.8)  Action
+# redhat-codeready-dependency-analysis Python (3.8)  Action
 
 A GitHub Action for using Red Hat CodeReady Dependency Analytics platform to detect vulnerabilities in your Python-3.8 projects.
 
 You can use the Action as follows:
 
 ```yaml
-name: Example workflow using CRDA
+name: Workflow using RedHat-CodeReady-Dependency-Analysis action
 on: push
 jobs:
   security:
@@ -16,16 +16,16 @@ jobs:
         run: |
           mkdir -p site-dir
           pip3 install --target=site-dir -r requirements.txt      
-      - name: crda-analysis
+      - name: redhat-codeready-dependency-analysis
         uses: fabric8-analytics/gh-actions/python-3.8@main
         with:
           manifest-file-path: requirements.txt
-          output-file-path: crda-analysis-report.json
+          output-file-path: redhat-codeready-dependency-analysis-report.json
           pkg-installation-directory-path: site-dir
         env:
           CRDA_KEY: ${{ secrets.CRDA_KEY }}
       - name: post-action-setup
         run: |
           printf "Report file data:\n"
-          cat crda-analysis-report.json
+          cat redhat-codeready-dependency-analysis-report.json
 ```
