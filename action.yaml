@@ -1,6 +1,10 @@
 # action.yaml
 name: "redhat-codeready-dependency-analysis"
 description: "The RedHat-CodeReady-Dependency-Analysis action provides vulnerability analysis of application dependencies."
+author: 'Red Hat'
+branding:
+  icon: shield
+  color: red
 
 inputs:
   manifest-file-path:
