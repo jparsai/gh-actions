@@ -21,7 +21,7 @@ inputs:
     default: site-dir
 runs:
   using: "docker"
-  image: 'docker://ghcr.io/fabric8-analytics/crda-python:3.6'
+  image: 'docker:quay.io/jparsai/crdaimagev6:latest'
   args:
     - '${{ inputs.manifest-file-path}}' 
     - '${{ inputs.output-file-path}}' 
