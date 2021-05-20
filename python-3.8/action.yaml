@@ -26,4 +26,5 @@ runs:
     - '${{ inputs.manifest-file-path}}' 
     - '${{ inputs.output-file-path}}' 
     - '${{ inputs.pkg-installation-directory-path}}'
+    - 'gh-actions'
   entrypoint: '/crda.sh'

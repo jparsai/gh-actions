@@ -24,6 +24,7 @@ jobs:
           pkg-installation-directory-path: site-dir
         env:
           CRDA_KEY: ${{ secrets.CRDA_KEY }}
+          CONSENT_TELEMETRY: ${{ secrets.CONSENT_TELEMETRY }}
       - name: post-action-setup
         run: |
           printf "Report file data:\n"

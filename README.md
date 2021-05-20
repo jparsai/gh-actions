@@ -17,6 +17,8 @@ Users need to install dependencies from manifest into a directory of workspace.
 Location of installation directory in workspace is required as parameter in the action.
 
 #### 3. Adding Secret
+This Action requires two secrets, crda_key and consent_telemetry to be added in environment.
+
 To authenticate a user this action uses CRDA user key. 
 This key should be saved in secrets, but before that users need to generate it.<br />
 This is a one time activity to perform. 
@@ -25,6 +27,10 @@ Here are the steps to generate a CRDA user key.<br />
 1. Install CRDA CLI from [here](https://github.com/fabric8-analytics/cli-tools/releases).
 2. Run `crda auth` command, and it will assign user a unique id, which can be found in `~/.crda/config.yaml`. 
 Users need to store the value of `crda_key` into a `Secret` to run the action.
+
+Second secret required is `consent_telemetry`. To improve CRDA platform and provide a better user experience, this Action collects anonymous usage data, but only after user's approval. 
+Please go thorough our [privacy statement](https://developers.redhat.com/article/tool-data-collection) to learn more about it. To opt-in for data collection users need to set `consent_telemetry=true` else set `consent_telemetry=false` to opt-out.
+
 
 ## Action Parameters
 - **manifest-file-path**: Path of target manifest file to perform analysis. `(default: requirements.txt)`
@@ -115,6 +121,7 @@ jobs:
           pkg-installation-directory-path: site-dir
         env:
           CRDA_KEY: ${{ secrets.CRDA_KEY }}
+          CONSENT_TELEMETRY: ${{ secrets.CONSENT_TELEMETRY }}
       - name: post-action-setup
         run: |
           printf "Report file data:\n"
